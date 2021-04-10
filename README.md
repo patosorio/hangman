@@ -1,4 +1,4 @@
-# Your Project's Name
+# Hangman Game
 
 One or two paragraphs providing an overview of your project.
 
