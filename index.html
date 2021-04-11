@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Hangman</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 header">
+                <h1>HANGMAN</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="col-12">
+                    <div class="word-area">
+                        <h3 id="wordToGuess">Choose a game</h3>
+                        <h3 id="wordToGuess1"></h3>
+                    </div>
+                    <div class="control-area">
+                        <button data-type="noun" class="btn btn-dark">play with Nouns</button>
+                        <button data-type="adjective" class="btn btn-dark">play with Adjectives</button>
+                        <button data-type="verb" class="btn btn-dark">play with Verbs</button>
+                    </div>
+                    <div class="submit-area">
+                        <input id="letter-box" type="text" name="letter">
+                        <button data-type="submit" class="btn btn-dark">try letter</button>
+                    </div>
+                    <div class="letters-area">
+                        <p>A</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="col-12">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="assets/script.js"></script>
+</body>
+
+</html>
