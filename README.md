@@ -1,8 +1,6 @@
 # Hangman Game
 
-One or two paragraphs providing an overview of your project.
-
-Essentially, this part is your sales pitch.
+English Hangman Game with three different parts of speech: Nouns, adjective or verbs.
  
 ## UX
  
