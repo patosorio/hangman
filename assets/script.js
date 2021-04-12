@@ -1,7 +1,7 @@
 const baseURL = "https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=";
 const baseURL_b = "&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=2&maxLength=9&api_key=qruoq28yifqp8eyc2aj97iwlvidotscjjgwmyl3n3v1ffeyfz";
 let wordToGuess = [];
-
+let count = 0;
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
 
@@ -46,19 +46,22 @@ function runGame(gameType) {
 
 function checkLetter() {
     let userLetter = document.getElementById("letter-box").value;
-    let correctWord = localStorage.getItem("word");
+    let getWord = localStorage.getItem("word"); // string
+    let updatedWord = getWord.split(''); // object
 
-    for (let c of correctWord) {
+    for (let c of updatedWord) {
+
         if (c == userLetter) {
             console.log(c);
-
         } else {
-            console.log("no");
+
         }
     }
+    updateGame(wordToGuess);
 }
 
-function drawGame(wordToGuess) {
+
+function updateGame(wordToGuess) {
     document.getElementById("wordToGuess").innerHTML = wordToGuess.join(' ');
 }
 
