@@ -50,17 +50,18 @@ function checkLetter() {
 
     let getWord = localStorage.getItem("word"); // string
     let correctWord = getWord.split(''); // object
-    console.log(correctWord); // ["e", "x", "a", "m", "p", "l", "e"];
+    // console.log(correctWord); // ["e", "x", "a", "m", "p", "l", "e"];
 
     for (let c of correctWord) {
-        if (c == userLetter) {
+        if (c != userLetter) {
+            console.log("not in word");
+        } else if (c == userLetter) {
             index = correctWord.multiIndexOf(c);
             for (let x of index) {
-                console.log(x);
                 wordToGuess.splice(x, 1, c);
             }
         } else {
-            updateScore();
+            console.log("not a letter");
         }
     }
     updateGame(wordToGuess);
@@ -80,6 +81,12 @@ Array.prototype.multiIndexOf = function (el) {
     }
     return idxs;
 };
+
+$("#letter-box").on('keyup', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        checkLetter();
+    }
+});
 
 function updateGame(wordToGuess) {
     document.getElementById("wordToGuess").innerHTML = wordToGuess.join(' ');
