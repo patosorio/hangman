@@ -1,6 +1,7 @@
 const baseURL = "https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=";
 const baseURL_b = "&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=2&maxLength=9&api_key=qruoq28yifqp8eyc2aj97iwlvidotscjjgwmyl3n3v1ffeyfz";
 let wordToGuess = [];
+let letterHistory = [];
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32,6 +33,15 @@ function getData(gameType, cb) {
 }
 
 function runGame(gameType) {
+    if (wordToGuess.includes('__')) {
+        var r = confirm("Do you want to start over? You will lose your changes");
+        if (r == true) {
+            location.reload();
+        } else {
+            return false;
+        }
+    }
+
     wordToGuess = [];
     getData(gameType, function (data) {
         word = data.word;
@@ -47,23 +57,34 @@ function runGame(gameType) {
 
 function checkLetter() {
     var userLetter = $("#letter-box").val();
+    if (letterHistory.includes(userLetter)) {
+        updateScore();
+    }
 
     let getWord = localStorage.getItem("word"); // string
     let correctWord = getWord.split(''); // object
     // console.log(correctWord); // ["e", "x", "a", "m", "p", "l", "e"];
 
     for (let c of correctWord) {
-        if (c != userLetter) {
-            console.log("not in word");
-        } else if (c == userLetter) {
+        if (c == userLetter) {
             index = correctWord.multiIndexOf(c);
             for (let x of index) {
                 wordToGuess.splice(x, 1, c);
             }
-        } else {
-            console.log("not a letter");
+            if (!letterHistory.includes(userLetter)) {
+                letterHistory.push(userLetter);
+            }
         }
     }
+
+    if (!correctWord.includes(userLetter)) {
+        updateScore();
+        if (!letterHistory.includes(userLetter)) {
+            letterHistory.push(userLetter);
+        }
+    }
+
+    endGame();
     updateGame(wordToGuess);
 }
 
@@ -90,9 +111,22 @@ $("#letter-box").on('keyup', function (e) {
 
 function updateGame(wordToGuess) {
     document.getElementById("wordToGuess").innerHTML = wordToGuess.join(' ');
+    document.getElementById("letterHistory").innerHTML = letterHistory.join(' ');
 }
 
 function updateScore() {
-    let oldScore = parseInt(document.getElementById("scores").innerText);
-    document.getElementById("scores").innerText = ++oldScore;
+
+    var numAttempts = parseInt($('#numAttempts').text());
+
+    document.getElementById("numAttempts").innerText = --numAttempts;
+    if (numAttempts <= 0) {
+        alert('You lost, the correct word is' + localStorage.getItem("word"));
+        location.reload();
+    }
+}
+
+function endGame() {
+    if (!wordToGuess.includes('__')) {
+        alert("You win!, the word is: " + wordToGuess.join(''));
+    }
 }

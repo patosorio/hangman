@@ -1,0 +1,35 @@
+.uppercase {
+    text-transform: uppercase;
+}
+
+.gameArea {
+    background-color: #f8f9fa;
+    margin-top: 5%;
+
+}
+
+#wordToGuess {
+    padding: 15px;
+}
+
+.control-area {
+    padding: 15px;
+    width: -80%;
+}
+
+@media only screen and (min-width: 768px) {
+    .control-area button {
+        width: 20%;
+        padding: 15px 3px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+.submit-area {
+    margin-top: 5%;
+}

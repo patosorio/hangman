@@ -7,47 +7,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/style.css">
     <title>Hangman</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12 header">
-                <h1>HANGMAN</h1>
+            <div class="col-12 header pl-0 pr-0">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            HANGMAN GAME
+                        </a>
+                        <a class="navbar-brand" href="#">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row gameArea">
+            <div class="col-12 text-center pl-0 pr-0">
+                <h1 id="wordToGuess" class="uppercase">CHOOSE A GAME</h1>
+                <div class="control-area">
+                    <button data-type="noun" class="btn btn-dark">NOUN</button>
+                    <button data-type="adjective" class="btn btn-dark">ADJECTIVE</button>
+                    <button data-type="verb" class="btn btn-dark">VERB</button>
+                </div>
+                <div class="submit-area">
+                    <input id="letter-box" type="text" name="letter">
+                    <button id="submitButton" data-type="submit" class="btn btn-dark">try letter</button>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
-                <div class="col-12">
-                    <div class="word-area">
-                        <h3 id="wordToGuess">Choose a game</h3>
-                        <h3 id="wordToGuess1"></h3>
-                    </div>
-                    <div class="control-area">
-                        <button data-type="noun" class="btn btn-dark">play with Nouns</button>
-                        <button data-type="adjective" class="btn btn-dark">play with Adjectives</button>
-                        <button data-type="verb" class="btn btn-dark">play with Verbs</button>
-                    </div>
-                    <div class="submit-area">
-                        <input id="letter-box" type="text" name="letter">
-                        <button data-type="submit" class="btn btn-dark">try letter</button>
-                    </div>
-                    <div class="letters-area">
-                        <p>A</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="col-12">
-                    <div id="scores">0</div>
-                </div>
+            <div class="col-12">
+                <div id="letterHistory">A</div>
+                <div id="numAttempts">10</div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
     <script type="text/javascript" src="assets/script.js"></script>
 </body>
 
