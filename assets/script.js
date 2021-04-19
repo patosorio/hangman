@@ -34,14 +34,13 @@ function getData(gameType, cb) {
 
 function runGame(gameType) {
     if (wordToGuess.includes('__')) {
-        var r = confirm("Do you want to start over? You will lose your changes");
+        var r = confirm("Do you want to start over? You will lose all changes");
         if (r == true) {
             location.reload();
         } else {
             return false;
         }
     }
-
     wordToGuess = [];
     getData(gameType, function (data) {
         word = data.word;
@@ -57,6 +56,11 @@ function runGame(gameType) {
 
 function checkLetter() {
     var userLetter = $("#letter-box").val();
+
+    if (userLetter == "") {
+        alert("insert a letter");
+    }
+
     if (letterHistory.includes(userLetter)) {
         updateScore();
     }
@@ -115,18 +119,16 @@ function updateGame(wordToGuess) {
 }
 
 function updateScore() {
-
     var numAttempts = parseInt($('#numAttempts').text());
-
     document.getElementById("numAttempts").innerText = --numAttempts;
     if (numAttempts <= 0) {
         alert('You lost, the correct word is' + localStorage.getItem("word"));
-        location.reload();
     }
 }
 
 function endGame() {
     if (!wordToGuess.includes('__')) {
         alert("You win!, the word is: " + wordToGuess.join(''));
+        location.reload();
     }
 }
