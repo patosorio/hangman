@@ -1,11 +1,31 @@
+body {
+    background-color: rgba(234, 22, 22, 0.5);
+    font-family: roboto;
+}
+
+
+
+#logo {
+    font-size: 2rem;
+    font-weight: 100;
+    color: #EA1616;
+}
+
+.bg-light {
+    background-color: #E8E8E8 !important;
+}
+
 .uppercase {
     text-transform: uppercase;
 }
 
-.gameArea {
-    background-color: #f8f9fa;
-    margin-top: 5%;
-
+.game-area {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #707070;
 }
 
 #wordToGuess {
@@ -32,4 +52,36 @@
 
 .submit-area {
     margin-top: 5%;
+}
+
+button {
+    background-color: #EA1616;
+    border-radius: 30px;
+    border-color: #EA1616;
+    color: white;
+}
+
+#letter-box {
+    background-color: rgba(234, 22, 22, 0.5);
+    border-radius: 10px;
+    border: 0;
+}
+
+#submitButton {
+    padding: 10px 20px;
+    margin: 10px 20px;
+    clear: both;
+}
+
+
+#letterHistory {
+    background-color: white;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+#numAttempts {
+    background-color: #EA1616;
+    padding: 15px;
+    width: 100%;
 }

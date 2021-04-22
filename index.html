@@ -17,12 +17,12 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 header pl-0 pr-0">
                 <nav class="navbar navbar-light bg-light">
-                    <div class="container">
-                        <a class="navbar-brand" href="#">
+                    <div class="container m-0 navbar-container">
+                        <a id="logo" class="navbar-brand" href="#">
                             HANGMAN GAME
                         </a>
                         <a class="navbar-brand" href="#">
@@ -33,26 +33,32 @@
                 </nav>
             </div>
         </div>
-        <div class="row gameArea">
-            <div class="col-12 text-center pl-0 pr-0">
-                <h1 id="wordToGuess" class="uppercase">CHOOSE A GAME</h1>
-                <div class="control-area">
-                    <button data-type="noun" class="btn btn-dark">NOUN</button>
-                    <button data-type="adjective" class="btn btn-dark">ADJECTIVE</button>
-                    <button data-type="verb" class="btn btn-dark">VERB</button>
-                </div>
-                <div class="submit-area">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3 text-center">
+                <div class="container game-area">
+                    <h1 id="wordToGuess" class="uppercase">CHOOSE A GAME</h1>
                     <input id="letter-box" type="text" name="letter" minlength="1" maxlength="1">
-                    <button id="submitButton" data-type="submit" class="btn btn-dark">try letter</button>
+                    <button id="submitButton" data-type="submit" class="">CHECK LETTER</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="control-area">
+                    <button data-type="noun" class="">NOUN</button>
+                    <button data-type="adjective" class="">ADJECTIVE</button>
+                    <button data-type="verb" class="">VERB</button>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-6 offset-md-3">
                 <div id="letterHistory">A</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-2">
                 <div id="numAttempts">10</div>
             </div>
-            <div class="col-12 col-md-4 offset-1">
+            <div class="col-12 col-md-4">
                 <img id="img" class="img-fluid" src="assets/img/10.png">
             </div>
         </div>
