@@ -57,8 +57,14 @@ function runGame(gameType) {
 function checkLetter() {
     var userLetter = $("#letter-box").val();
 
+    if (wordToGuess == "") {
+        confirm("choose a game first");
+        location.reload();
+    }
+
     if (userLetter == "") {
         alert("insert a letter");
+        location.reload();
     }
 
     if (letterHistory.includes(userLetter)) {
@@ -121,14 +127,16 @@ function updateGame(wordToGuess) {
 function updateScore() {
     var numAttempts = parseInt($('#numAttempts').text());
     document.getElementById("numAttempts").innerText = --numAttempts;
+    var img = document.getElementById("img")
+    img.src = ('assets/img/' + (numAttempts) + '.png');
     if (numAttempts <= 0) {
         alert('You lost, the correct word is' + localStorage.getItem("word"));
+
     }
 }
 
 function endGame() {
     if (!wordToGuess.includes('__')) {
         alert("You win!, the word is: " + wordToGuess.join(''));
-        location.reload();
     }
 }
