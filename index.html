@@ -20,8 +20,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 header pl-0 pr-0">
-                <nav class="navbar navbar-light bg-light">
-                    <div class="container m-0 navbar-container">
+                <nav class="navbar navbar-expand navbar-light bg-light">
+                    <div class="container-fluid m-0 navbar-container">
                         <a id="logo" class="navbar-brand" href="index.html">
                             HANGMAN GAME
                         </a>
@@ -34,38 +34,37 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 offset-md-3 text-center">
-                <div class="container game-area">
-                    <h1 id="wordToGuess" class="uppercase">CHOOSE A GAME</h1>
-                    <input
-                        oninput="let p = this.selectionStart; this.value = this.value.toLowerCase();this.setSelectionRange(p, p);"
-                        id="letter-box" type="text" name="letter" minlength="1" maxlength="1">
-                    <button id="submitButton" data-type="submit" class="">CHECK LETTER</button>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 offset-md-3">
-                <div class="control-area">
-                    <button data-type="noun" class="">NOUN</button>
-                    <button data-type="adjective" class="">ADJECTIVE</button>
-                    <button data-type="verb" class="">VERB</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6 offset-md-3">
-                <div id="letterHistory"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-2">
-                <div id="numAttempts">10</div>
-            </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-3">
                 <img id="img" class="img-fluid" src="assets/img/10.png">
+            </div>
+            <div class="col-12 col-md-6 text-center">
+                <div class="container game-area">
+                    <div class="control-area">
+                        <h1 id="wordToGuess" class="uppercase">CHOOSE A GAME</h1>
+                        <input
+                            oninput="let p = this.selectionStart; this.value = this.value.toLowerCase();this.setSelectionRange(p, p);"
+                            id="letter-box" type="text" name="letter" minlength="1" maxlength="1">
+                        <button id="submitButton" data-type="submit" class="">CHECK LETTER</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="btn-container">
+                    <button data-type="noun" class="btn btn-game-type">NOUN</button>
+                    <button data-type="adjective" class="btn btn-game-type">ADJECTIVE</button>
+                    <button data-type="verb" class="btn btn-game-type">VERB</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="points-container">
+                    <div id="letterHistory">Letters History</div>
+                    <div id="numAttempts">10</div>
+                </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
