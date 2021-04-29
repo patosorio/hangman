@@ -22,10 +22,10 @@
             <div class="col-12 header pl-0 pr-0">
                 <nav class="navbar navbar-light bg-light">
                     <div class="container m-0 navbar-container">
-                        <a id="logo" class="navbar-brand" href="#">
+                        <a id="logo" class="navbar-brand" href="index.html">
                             HANGMAN GAME
                         </a>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="contact.html">
                             <i class="fas fa-envelope"></i>
                         </a>
 
@@ -37,7 +37,9 @@
             <div class="col-12 col-md-6 offset-md-3 text-center">
                 <div class="container game-area">
                     <h1 id="wordToGuess" class="uppercase">CHOOSE A GAME</h1>
-                    <input id="letter-box" type="text" name="letter" minlength="1" maxlength="1">
+                    <input
+                        oninput="let p = this.selectionStart; this.value = this.value.toLowerCase();this.setSelectionRange(p, p);"
+                        id="letter-box" type="text" name="letter" minlength="1" maxlength="1">
                     <button id="submitButton" data-type="submit" class="">CHECK LETTER</button>
                 </div>
             </div>
@@ -51,7 +53,7 @@
         </div>
         <div class="row">
             <div class="col-12 col-md-6 offset-md-3">
-                <div id="letterHistory">A</div>
+                <div id="letterHistory"></div>
             </div>
         </div>
         <div class="row">

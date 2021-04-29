@@ -3,14 +3,17 @@ const baseURL_b = "&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1
 let wordToGuess = [];
 let letterHistory = [];
 
-
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "submit") {
-                checkLetter();
+                if (wordToGuess.includes('__')) {
+                    checkLetter();
+                } else {
+                    alert("Please insert a game.")
+                }
             } else {
                 let gameType = this.getAttribute("data-type");
                 runGame(gameType);
@@ -33,17 +36,10 @@ function getData(gameType, cb) {
 }
 
 function runGame(gameType) {
-    if (wordToGuess.includes('__')) {
-        var r = confirm("Do you want to start over? You will lose all changes");
-        if (r == true) {
-            location.reload();
-        } else {
-            return false;
-        }
-    }
     wordToGuess = [];
     getData(gameType, function (data) {
         word = data.word;
+        word.toLowerCase();
         splitedWord = word.split('');
 
         for (let c of splitedWord) {
@@ -57,16 +53,9 @@ function runGame(gameType) {
 function checkLetter() {
     var userLetter = $("#letter-box").val();
 
-    if (wordToGuess == "") {
-        confirm("choose a game first");
-        location.reload();
+    if (!userLetter) {
+        alert("Insert a letter to check")
     }
-
-    if (userLetter == "") {
-        alert("insert a letter");
-        location.reload();
-    }
-
     if (letterHistory.includes(userLetter)) {
         updateScore();
     }
@@ -115,7 +104,11 @@ Array.prototype.multiIndexOf = function (el) {
 
 $("#letter-box").on('keyup', function (e) {
     if (e.key === 'Enter' || e.keyCode === 13) {
-        checkLetter();
+        if (wordToGuess.includes('__')) {
+            checkLetter();
+        } else {
+            alert("Please insert a game.")
+        }
     }
 });
 
@@ -130,7 +123,7 @@ function updateScore() {
     var img = document.getElementById("img")
     img.src = ('assets/img/' + (numAttempts) + '.png');
     if (numAttempts <= 0) {
-        alert('You lost, the correct word is' + localStorage.getItem("word"));
+        alert('You lost, the correct word is: ' + localStorage.getItem("word"));
 
     }
 }
