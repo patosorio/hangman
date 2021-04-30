@@ -40,6 +40,7 @@ function runGame(gameType) {
     getData(gameType, function (data) {
         word = data.word;
         word.toLowerCase();
+        word.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
         splitedWord = word.split('');
 
         for (let c of splitedWord) {
@@ -55,9 +56,6 @@ function checkLetter() {
 
     if (!userLetter) {
         alert("Insert a letter to check")
-    }
-    if (letterHistory.includes(userLetter)) {
-        updateScore();
     }
 
     let getWord = localStorage.getItem("word"); // string
@@ -122,9 +120,9 @@ function updateScore() {
     document.getElementById("numAttempts").innerText = --numAttempts;
     var img = document.getElementById("img")
     img.src = ('assets/img/' + (numAttempts) + '.png');
-    if (numAttempts <= 0) {
+    if (numAttempts == 0) {
         alert('You lost, the correct word is: ' + localStorage.getItem("word"));
-
+        location.reload();
     }
 }
 

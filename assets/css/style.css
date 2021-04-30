@@ -69,24 +69,39 @@ body {
 }
 
 .btn-game-type {
-    width: 50%;
-    display: block;
-    height: 60px;
     background-color: rgba(22, 87, 234);
     border-radius: 30px;
     margin: 15px;
     color: white;
 }
 
+@media only screen and (min-width: 767px) {
+    .btn-game-type {
+        width: 50%;
+        display: block;
+        height: 60px;
+        background-color: rgba(22, 87, 234);
+        border-radius: 30px;
+        margin: 15px;
+        color: white;
+    }
+}
+
+
+
+
+
 #letter-box {
-    background-color: rgba(234, 22, 22, 0.5);
+    background-color: rgba(22, 87, 234), 0.5;
     border-radius: 10px;
 
 }
 
-#submitButton {
-    padding: 10px 20px;
-    margin: 10px 20px;
+.submit-button {
+    background-color: rgba(22, 87, 234);
+    border-radius: 30px;
+    margin: 15px;
+    color: white;
 }
 
 .points-container {
@@ -103,7 +118,7 @@ body {
 }
 
 #numAttempts {
-    background-color: #EA1616;
+    background-color: rgba(22, 87, 234);
     padding: 15px;
     float: left;
     width: 20%;

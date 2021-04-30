@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -14,7 +12,7 @@
         crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Hangman | Report a bug</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
     </script>
@@ -42,14 +40,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 offset-md-3 text-center">
+            <div class="col-12 col-md-6 offset-md-3 text-center mt-3">
                 <form onsubmit="return sendMail(this);">
                     <input type="text" name="name" class="form-control" id="fullname" placeholder="Name" required />
                     <input type="text" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email"
                         required />
                     <textarea rows="5" name="message" class="form-control" id="message" placeholder="Message"
                         required></textarea>
-                    <button type="submit" class="btn btn-secondary center-block">Send Message</button>
+                    <button type="submit" class="btn submit-button center-block">Send Message</button>
                 </form>
             </div>
         </div>
@@ -66,7 +64,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="assets/sendEmail.js"></script>
+    <script type="text/javascript" src="assets/js/sendEmail.js"></script>
 </body>
 
 </html>
